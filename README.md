@@ -1,6 +1,7 @@
 # 使用方法
 
 ```kotlin
+// build.gradle.kts
 plugins {
     id("cn.rtast.rkmbed") version "<version>"
 }
@@ -8,6 +9,15 @@ plugins {
 repositories {
     mavenCentral()
     maven("https://repo.maven.rtast.cn/releases")
+}
+
+// settings.gradle.kts
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven("https://repo.maven.rtast.cn/releases")
+    }
 }
 ```
 

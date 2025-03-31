@@ -28,6 +28,8 @@ import com.example.resources.GeneratedResource
 fun main() {
     // 需要手动初始化 | Need init the property manually
     RKMBedResource.setResource(GeneratedResource)
+
+    println(getResouerce("config.json").asString())
 }
 ```
 

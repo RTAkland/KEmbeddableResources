@@ -26,7 +26,9 @@ kotlin {
 
     sourceSets {
         commonMain {
-
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-io-core:0.7.0")
+            }
         }
     }
 }

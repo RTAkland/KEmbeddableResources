@@ -25,6 +25,11 @@ abstract class GenerateResourcesTask : DefaultTask() {
             appendLine("package ${project.extensions.findByType(RKMbedProjectExtension::class.java)?.packageName?.get() ?: "com.example.resources"}")
             appendLine()
             appendLine(
+                """import kotlinx.io.buffered
+import kotlinx.io.files.Path
+import kotlinx.io.files.SystemFileSystem"""
+            )
+            appendLine(
                 @Language("kotlin")
                 "private val res: Map<String, AbstractResource> = mapOf<String, AbstractResource>("
             )
@@ -32,8 +37,8 @@ abstract class GenerateResourcesTask : DefaultTask() {
                 appendLine(
                     "\"${
                         it.path.split("src${File.separator}commonMain${File.separator}resources${File.separator}")
-                            .last()
-                    }\" to AbstractResource(${it.toByteArrayOf()})"
+                            .last().replace(File.separator, "/")
+                    }\" to AbstractResource(${it.toUByteArrayOf()}),"
                 )
             }
             appendLine(
@@ -43,13 +48,20 @@ public fun getResources(path: String): AbstractResource {
     return requireNotNull(res[path]) { "资源不存在!" }
 }
 
-public class AbstractResource(private val source: ByteArray) {
+public class AbstractResource(private val uSource: UByteArray) {
+    
+    private val source = uSource.toByteArray()
+    
     public fun asByteArray(): ByteArray {
         return source
     }
 
     public fun asString(): String {
         return source.decodeToString()
+    }
+
+    public fun saveTo(path: Path) {
+        SystemFileSystem.sink(path).use { it.buffered().write(source) }
     }
 }"""
             )

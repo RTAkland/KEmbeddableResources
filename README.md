@@ -21,12 +21,12 @@ pluginManagement {
 }
 ```
 
-> 最新版本可以在这里找到 https://maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
+> 最新版本可以在这里找到 https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
 
 
 # Usage
 
 Just add plugin and add repository
 
-> The newest version can be found at https://maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
+> The newest version can be found at https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
 

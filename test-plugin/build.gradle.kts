@@ -1,9 +1,10 @@
 plugins {
-    id("cn.rtast.rkmbed") version "0.0.9"
+    id("cn.rtast.rkmbed") version "1.0.8"
     kotlin("multiplatform")
 }
 
 repositories {
+    mavenCentral()
     mavenLocal()
     gradlePluginPortal()
 }
@@ -28,6 +29,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-io-core:0.7.0")
+                implementation(project(":runtime"))
             }
         }
     }

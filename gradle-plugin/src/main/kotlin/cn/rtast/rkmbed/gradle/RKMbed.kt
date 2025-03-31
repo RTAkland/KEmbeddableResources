@@ -13,13 +13,12 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 class RKMbed : Plugin<Project> {
     override fun apply(target: Project) {
         target.extensions.create("rkmbed", RKMbedProjectExtension::class.java)
-        val generateTask = target.tasks.register("generateResources", GenerateResourcesTask::class.java) {
+        target.tasks.register("generateResources", GenerateResourcesTask::class.java) {
             it.group = "rkmbed"
         }
         target.afterEvaluate {
             target.extensions.getByType(KotlinMultiplatformExtension::class.java)
                 .sourceSets.findByName("commonMain")?.kotlin?.srcDir("build/generated/kotlin")
-            generateTask.get().generate()
         }
     }
 }

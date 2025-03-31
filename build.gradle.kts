@@ -21,6 +21,7 @@ subprojects {
 
     publishing {
         repositories {
+//            mavenLocal()
             maven("https://maven.rtast.cn/releases/") {
                 credentials {
                     username = "RTAkland"

@@ -9,7 +9,6 @@ package cn.rtast.rkmbed.gradle
 import java.io.File
 
 fun File.toUByteArrayOf(): String {
-    val bytes = this.readBytes()
-    val hexBytes = bytes.joinToString(", ") { "0x%02XU".format(it.toInt() and 0xFF) }
+    val hexBytes = this.readBytes().joinToString(", ") { "0x%02XU".format(it.toInt() and 0xFF) }
     return "ubyteArrayOf($hexBytes)"
 }

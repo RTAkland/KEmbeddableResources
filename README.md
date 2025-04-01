@@ -11,6 +11,16 @@ repositories {
     maven("https://repo.maven.rtast.cn/releases")
 }
 
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation("cn.rtast.rkmbed:runtime:<version>")
+            }
+        }
+    }
+}
+
 // settings.gradle.kts
 pluginManagement {
     repositories {

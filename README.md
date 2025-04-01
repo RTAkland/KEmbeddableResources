@@ -11,6 +11,16 @@ repositories {
     maven("https://repo.maven.rtast.cn/releases")
 }
 
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation("cn.rtast.rkmbed:runtime:<version>")
+            }
+        }
+    }
+}
+
 // settings.gradle.kts
 pluginManagement {
     repositories {
@@ -34,5 +44,5 @@ fun main() {
 
 Just add plugin and add repository
 
-> The newest version can be found at https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
+> The latest version can be found at https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
 

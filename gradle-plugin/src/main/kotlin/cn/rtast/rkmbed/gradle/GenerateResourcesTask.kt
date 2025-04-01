@@ -15,7 +15,7 @@ abstract class GenerateResourcesTask : DefaultTask() {
     fun generate() {
         val resourcesDir = project.layout.projectDirectory.dir("src/commonMain/resources")
         val outputDir = project.layout.buildDirectory.dir("generated/kotlin").get().asFile
-        val outputFile = File(outputDir, "_RKMbed_GeneratedResources.kt")
+        val outputFile = File(outputDir, "_RKMbed_GeneratedResources_x_x_x_1_2.kt")
         if (!resourcesDir.asFile.exists()) return
         val settings = project.extensions.findByType(RKMbedProjectExtension::class.java)
         val files = resourcesDir.asFileTree.files
@@ -28,7 +28,7 @@ abstract class GenerateResourcesTask : DefaultTask() {
             appendLine()
             appendCode("""import cn.rtast.rkmbed.runtime.Resource""")
             appendLine()
-            appendCode("public val GeneratedResource: Map<String, Resource> = mapOf<String, Resource>(")
+            appendCode("private val GeneratedResource: Map<String, Resource> = mapOf<String, Resource>(")
             files.forEach {
                 appendCode(
                     "\"${
@@ -38,6 +38,12 @@ abstract class GenerateResourcesTask : DefaultTask() {
                 )
             }
             appendCode(")")
+            appendLine()
+            appendCode(
+                """public fun getResource(path: String): Resource {
+    return requireNotNull(GeneratedResource[path]) { "资源 $path 不存在! | Resource $path is not exists!" }
+}"""
+            )
         }
         outputFile.parentFile.mkdirs()
         outputFile.writeText(generatedCode)

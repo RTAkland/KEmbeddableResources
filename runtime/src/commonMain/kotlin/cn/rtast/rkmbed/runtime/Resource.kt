@@ -4,6 +4,8 @@
  * Date: 2025/3/31
  */
 
+@file:OptIn(ExperimentalUnsignedTypes::class)
+
 package cn.rtast.rkmbed.runtime
 
 import kotlinx.io.Buffer

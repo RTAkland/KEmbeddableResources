@@ -6,11 +6,9 @@
 
 package test
 
-import cn.rtast.rkmbed.runtime.RKMBedResource
-import cn.rtast.rkmbed.runtime.getResource
-import cn.rtast.test.resources.GeneratedResource
+import cn.rtast.test.resources.getResource
+
 
 fun main() {
-    RKMBedResource.setResource(GeneratedResource)
     println(getResource("a.text").asString())
 }

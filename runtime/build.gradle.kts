@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     kotlin("multiplatform")
 }
@@ -9,6 +11,9 @@ kotlin {
     mingwX64()
     macosX64()
     macosArm64()
+    jvm {
+        compilerOptions.jvmTarget = JvmTarget.JVM_1_8
+    }
 
     sourceSets {
         commonMain {

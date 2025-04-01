@@ -41,7 +41,7 @@ abstract class GenerateResourcesTask : DefaultTask() {
             appendLine()
             appendCode(
                 """public fun getResource(path: String): Resource {
-    return requireNotNull(GeneratedResource[path]) { "资源 $path 不存在! | Resource $path is not exists!" }
+    return requireNotNull(GeneratedResource[path]) { "资源 ${'$'}path 不存在! | Resource ${'$'}path is not exists!" }
 }"""
             )
         }

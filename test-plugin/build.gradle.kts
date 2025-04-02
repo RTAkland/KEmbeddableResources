@@ -1,5 +1,5 @@
 plugins {
-    id("cn.rtast.rkmbed") version "1.1.1"
+    id("cn.rtast.rkmbed") version "1.1.3"
     kotlin("multiplatform")
 }
 
@@ -37,4 +37,5 @@ kotlin {
 
 rkmbed {
     packageName = "cn.rtast.test.resources"
+    resourcePath.add("nativeMain/resources")
 }

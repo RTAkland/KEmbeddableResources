@@ -5,6 +5,7 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
         mavenLocal()
+        maven("https://repo.maven.rtast.cn/releases")
     }
 }
 

@@ -8,6 +8,8 @@ plugins {
 
 repositories {
     mavenCentral()
+    // 添加RTAST的maven仓库
+    // Add the maven repository of RTAST
     maven("https://repo.maven.rtast.cn/releases")
 }
 
@@ -21,11 +23,22 @@ kotlin {
     }
 }
 
+rkmbed {
+    // 指定生成的资源类的包名
+    // Specify auto-generated resources source code package
+    packageName = "cn.rtast.test.resources"
+    // 添加别的源码集的资源文件夹(默认列表中只有"commonMain/resources")
+    // Add others sourceSet's resources folder (This list only contains "commonMain/resources" by default)  
+    resourcePath.add("nativeMain/resources")
+}
+
 // settings.gradle.kts
 pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
+        // 添加RTAST的maven仓库
+        // Add the maven repository of RTAST
         maven("https://repo.maven.rtast.cn/releases")
     }
 }
@@ -42,7 +55,7 @@ fun main() {
 
 # Usage
 
-Just add plugin and add repository
+Just add plugin, add repository, configure plugin, then enjoy it~
 
 > The latest version can be found at https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
 

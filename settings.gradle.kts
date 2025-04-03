@@ -11,4 +11,5 @@ pluginManagement {
 
 include(":gradle-plugin")
 include(":runtime")
+include(":runtime-filesystem")
 include(":test-plugin")

@@ -59,6 +59,17 @@ fun main() {
 $ ./gradlew generateResources
 ```
 
+# FileSystem模块
+
+这个模块提供了一个拓展函数, 可以保存到文件系统中, 但是依赖于Kotlinx-io
+
+```kotlin
+fun main() {
+    val resource: Resource = getResource("xxx.txt")
+    resource.saveTo(Path("kotlinx-io/xxx.txt"))  // Kotlinx-io Path
+}
+```
+
 > 最新版本可以在这里找到 https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
 
 # Usage
@@ -73,4 +84,15 @@ Just add plugin, add repository, configure plugin, then enjoy it~
 
 ```shell
 $ ./gradlew generateResources
+```
+
+# FileSystem module
+
+This module provides an extension functions to save the resource file into file system, but it depends on kotlinx-io
+
+```kotlin
+fun main() {
+    val resource: Resource = getResource("xxx.txt")
+    resource.saveTo(Path("kotlinx-io/xxx.txt"))  // Kotlinx-io Path
+}
 ```

@@ -6,10 +6,10 @@
 
 package cn.rtast.rkmbed.runtime
 
-public actual fun ByteArray.zlibCompress(): ByteArray {
-    TODO("暂不支持")
-}
-
-public actual fun ByteArray.zlibDecompress(): ByteArray {
-    TODO("暂不支持")
-}
+//public actual fun ByteArray.zlibCompress(): ByteArray {
+//    TODO("暂不支持")
+//}
+//
+//public actual fun ByteArray.zlibDecompress(): ByteArray {
+//    TODO("暂不支持")
+//}

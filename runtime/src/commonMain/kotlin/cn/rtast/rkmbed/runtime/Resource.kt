@@ -8,10 +8,6 @@
 
 package cn.rtast.rkmbed.runtime
 
-import kotlinx.io.Buffer
-import kotlinx.io.files.Path
-import kotlinx.io.files.SystemFileSystem
-
 public class Resource(uSource: UByteArray, private val compressed: Boolean = false) {
     private val source = uSource.toByteArray()
 
@@ -19,10 +15,5 @@ public class Resource(uSource: UByteArray, private val compressed: Boolean = fal
 
     public fun asString(): String {
         return asByteArray().decodeToString()
-    }
-
-    public fun saveTo(path: Path) {
-        val buffer = Buffer().apply { write(asByteArray()) }
-        SystemFileSystem.sink(path).use { it.write(buffer, buffer.size) }
     }
 }

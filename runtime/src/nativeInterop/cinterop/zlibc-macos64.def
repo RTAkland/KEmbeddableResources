@@ -1,0 +1,4 @@
+headers = E:\\projects\\RKMbed\\zlibc\\zlib_helper.h
+staticLibraries = libzlibc-macos64.a
+libraryPaths = E:\\projects\\RKMbed\\zlibc\\libs
+package = cn.rtast.zlibc

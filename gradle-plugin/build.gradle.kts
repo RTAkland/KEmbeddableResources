@@ -22,6 +22,7 @@ gradlePlugin {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.20")
+    implementation(project(":runtime"))
 }
 
 tasks.compileKotlin {

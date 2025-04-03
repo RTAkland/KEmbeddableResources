@@ -17,6 +17,7 @@ abstract class GenerateResourcesTask : DefaultTask() {
     @TaskAction
     fun generate() {
         val settings = project.extensions.findByType(RKMbedProjectExtension::class.java)!!
+        val usingCompression = settings.compression.get()
         val outputDir = project.layout.buildDirectory.dir("generated/kotlin").get().asFile
         val outputFile = File(outputDir, "_RKMbed_GeneratedResources_x_x_x_1_2.kt")
         outputFile.parentFile.mkdirs()
@@ -39,7 +40,7 @@ abstract class GenerateResourcesTask : DefaultTask() {
                             "\"${
                                 it.path.split("src${sep}${sourceSet.split("/").first()}${sep}resources${sep}")
                                     .last().replace(sep, "/")
-                            }\" to Resource(${it.toUByteArrayOf()}),"
+                            }\" to Resource(${it.toUByteArrayOf(usingCompression)}, $usingCompression),"
                         )
                     }
                 }

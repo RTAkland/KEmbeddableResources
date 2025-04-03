@@ -1,0 +1,3 @@
+[submodule "zlibc"]
+	path = zlibc
+	url = https://repo.rtast.cn/RTAkland/zlibc.git

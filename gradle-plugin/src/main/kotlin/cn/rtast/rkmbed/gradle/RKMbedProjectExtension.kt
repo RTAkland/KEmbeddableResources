@@ -17,7 +17,11 @@ abstract class RKMbedProjectExtension {
     @get:Input
     abstract val resourcePath: ListProperty<String>
 
+    @get:Input
+    abstract val compression: Property<Boolean>
+
     init {
         resourcePath.set(mutableListOf("commonMain/resources"))
+        compression.convention(true)
     }
 }

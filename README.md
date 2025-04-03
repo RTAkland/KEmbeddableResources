@@ -50,8 +50,13 @@ fun main() {
 }
 ```
 
-> 最新版本可以在这里找到 https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
+# 生成资源文件
 
+```shell
+$ ./gradlew generateResources
+```
+
+> 最新版本可以在这里找到 https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
 
 # Usage
 
@@ -59,3 +64,8 @@ Just add plugin, add repository, configure plugin, then enjoy it~
 
 > The latest version can be found at https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
 
+# Generating the resources
+
+```shell
+$ ./gradlew generateResources
+```

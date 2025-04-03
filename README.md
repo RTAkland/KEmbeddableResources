@@ -70,6 +70,10 @@ fun main() {
 }
 ```
 
+# 不支持的特性
+
+- 不支持使用zlib压缩资源
+
 > 最新版本可以在这里找到 https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
 
 # Usage
@@ -96,3 +100,7 @@ fun main() {
     resource.saveTo(Path("kotlinx-io/xxx.txt"))  // Kotlinx-io Path
 }
 ```
+
+# Missing features
+
+- Zlib compression are unsupported

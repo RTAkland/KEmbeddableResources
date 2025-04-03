@@ -49,6 +49,7 @@ pluginManagement {
 ```kotlin
 fun main() {
     println(getResouerce("config.json").asString())
+    println(getResouerce("config.json").asByteArray())
 }
 ```
 

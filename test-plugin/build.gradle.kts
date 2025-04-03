@@ -1,5 +1,5 @@
 plugins {
-    id("cn.rtast.rkmbed") version "1.1.3"
+    id("cn.rtast.rkmbed") version "1.1.4"
     kotlin("multiplatform")
 }
 

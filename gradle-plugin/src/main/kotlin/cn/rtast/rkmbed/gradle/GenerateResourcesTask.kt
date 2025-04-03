@@ -32,15 +32,16 @@ abstract class GenerateResourcesTask : DefaultTask() {
             appendCode("private val GeneratedResource: Map<String, Resource> = mapOf<String, Resource>(")
             settings.resourcePath.get().distinct().forEach { sourceSet ->
                 val resourcesDir = project.layout.projectDirectory.dir("src/$sourceSet")
-                if (!resourcesDir.asFile.exists()) return
-                val files = resourcesDir.asFileTree.files
-                files.forEach {
-                    appendCode(
-                        "\"${
-                            it.path.split("src${sep}${sourceSet.split("/").first()}${sep}resources${sep}")
-                                .last().replace(sep, "/")
-                        }\" to Resource(${it.toUByteArrayOf()}),"
-                    )
+                if (resourcesDir.asFile.exists()) {
+                    val files = resourcesDir.asFileTree.files
+                    files.forEach {
+                        appendCode(
+                            "\"${
+                                it.path.split("src${sep}${sourceSet.split("/").first()}${sep}resources${sep}")
+                                    .last().replace(sep, "/")
+                            }\" to Resource(${it.toUByteArrayOf()}),"
+                        )
+                    }
                 }
             }
             appendCode(")")

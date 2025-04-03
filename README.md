@@ -1,5 +1,7 @@
 # 使用方法
 
+> 这个插件仅用于Kotlin Multiplatform项目(Native)
+
 ```kotlin
 // build.gradle.kts
 plugins {
@@ -59,6 +61,8 @@ $ ./gradlew generateResources
 > 最新版本可以在这里找到 https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
 
 # Usage
+
+> This plugin only usage for Kotlin Multiplatform(Native)
 
 Just add plugin, add repository, configure plugin, then enjoy it~
 

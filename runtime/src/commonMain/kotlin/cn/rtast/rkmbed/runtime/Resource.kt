@@ -15,7 +15,7 @@ import kotlinx.io.files.SystemFileSystem
 public class Resource(uSource: UByteArray, private val compressed: Boolean = false) {
     private val source = uSource.toByteArray()
 
-    public fun asByteArray(): ByteArray = if (compressed) source.zlibDecompress() else source
+    public fun asByteArray(): ByteArray = source
 
     public fun asString(): String {
         return asByteArray().decodeToString()

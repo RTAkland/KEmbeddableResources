@@ -1,3 +1,5 @@
+import cn.rtast.rkmbed.gradle.target.KMPTarget
+
 plugins {
     id("cn.rtast.rkmbed") version "1.1.4"
     kotlin("multiplatform")
@@ -37,5 +39,8 @@ kotlin {
 
 rkmbed {
     packageName = "cn.rtast.test.resources"
-    resourcePath.add("nativeMain/resources")
+    mergeResources = false
+    mappedResourcesPath = mutableMapOf("commonMain/resources" to KMPTarget("commonMain")).apply {
+        put("nativeMain/resources", KMPTarget("nativeMain"))
+    }
 }

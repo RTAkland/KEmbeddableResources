@@ -1,5 +1,5 @@
 plugins {
-    id("cn.rtast.rkmbed") version "1.1.4"
+    id("cn.rtast.rkmbed") version "1.1.7"
     kotlin("multiplatform")
 }
 
@@ -29,7 +29,6 @@ kotlin {
         commonMain {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-io-core:0.7.0")
-                implementation(project(":runtime"))
             }
         }
     }

@@ -19,7 +19,10 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("cn.rtast.rkmbed:runtime:<version>")
+                // 这里两个依赖仅在需要将文件保存到文件系统中时需要
+                // These two dependencies are only needed when you need to save the file to the file system
+                implementation("org.jetbrains.kotlinx:kotlinx-io-core:0.7.0")
+                implementation("cn.rtast.rkmbed:runtime-filesystem:<version>")
             }
         }
     }

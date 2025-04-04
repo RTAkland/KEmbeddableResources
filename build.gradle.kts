@@ -13,21 +13,30 @@ allprojects {
     repositories {
         mavenCentral()
         mavenLocal()
+        maven("https://repo.maven.rtast.cn/releases")
     }
 }
 
 subprojects {
     apply(plugin = "maven-publish")
 
-    publishing {
-        repositories {
-            mavenLocal()
-//            maven("https://maven.rtast.cn/releases/") {
-//                credentials {
-//                    username = "RTAkland"
-//                    password = System.getenv("PUBLISH_TOKEN")
-//                }
-//            }
+    afterEvaluate {
+        if (project.name == "test-plugin") {
+            tasks.matching { it.name == "publish" }.configureEach {
+                onlyIf { false }
+            }
+        } else {
+            publishing {
+                repositories {
+//                    mavenLocal()
+                    maven("https://maven.rtast.cn/releases/") {
+                        credentials {
+                            username = "RTAkland"
+                            password = System.getenv("PUBLISH_TOKEN")
+                        }
+                    }
+                }
+            }
         }
     }
 }

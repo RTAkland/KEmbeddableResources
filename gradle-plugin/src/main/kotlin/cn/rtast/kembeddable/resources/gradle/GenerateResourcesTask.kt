@@ -29,7 +29,7 @@ abstract class GenerateResourcesTask : DefaultTask() {
             appendLine()
             appendCode("package ${settings.packageName.get() ?: "com.example.resources"}")
             appendLine()
-            appendCode("""import cn.rtast.rkmbed.runtime.Resource""")
+            appendCode("""import cn.rtast.kembeddable.resources.runtime.Resource""")
             appendLine()
             appendCode("private val kembeddableGeneratedResource: Map<String, Resource> = mapOf<String, Resource>(")
             settings.resourcePath.get().distinct().forEach { sourceSet ->

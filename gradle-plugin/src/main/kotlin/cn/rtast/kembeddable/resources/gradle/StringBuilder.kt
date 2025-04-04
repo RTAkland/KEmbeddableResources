@@ -8,6 +8,4 @@
 
 package cn.rtast.kembeddable.resources.gradle
 
-import org.intellij.lang.annotations.Language
-
-fun StringBuilder.appendCode(@Language("kotlin") code: String) = appendLine(code)
+fun StringBuilder.appendCode(code: String) = appendLine(code)

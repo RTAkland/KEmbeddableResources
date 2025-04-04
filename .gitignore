@@ -2,3 +2,4 @@
 .gradle/
 **/build/
 .kotlin/
+gradle-plugin/src/main/kotlin/cn/rtast/kembeddable/resources/gradle/BuildConstants.kt

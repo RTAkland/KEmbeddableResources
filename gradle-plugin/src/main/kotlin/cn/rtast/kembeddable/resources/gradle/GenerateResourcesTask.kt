@@ -31,7 +31,7 @@ abstract class GenerateResourcesTask : DefaultTask() {
             appendLine()
             appendCode("""import cn.rtast.rkmbed.runtime.Resource""")
             appendLine()
-            appendCode("private val rkmbedGeneratedResource: Map<String, Resource> = mapOf<String, Resource>(")
+            appendCode("private val kembeddableGeneratedResource: Map<String, Resource> = mapOf<String, Resource>(")
             settings.resourcePath.get().distinct().forEach { sourceSet ->
                 val resourcesDir = project.layout.projectDirectory.dir("src/$sourceSet")
                 if (resourcesDir.asFile.exists()) {
@@ -50,7 +50,7 @@ abstract class GenerateResourcesTask : DefaultTask() {
             appendLine()
             appendCode(
                 """public fun getResource(path: String): Resource {
-    return requireNotNull(rkmbedGeneratedResource[path]) { "资源 ${'$'}path 不存在! | Resource ${'$'}path is not exists!" }
+    return requireNotNull(kembeddableGeneratedResource[path]) { "资源 ${'$'}path 不存在! | Resource ${'$'}path is not exists!" }
 }"""
             )
         }

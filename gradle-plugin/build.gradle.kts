@@ -34,12 +34,11 @@ tasks.compileJava {
 }
 
 val generateVersions by tasks.registering {
-    val version = project.version.toString()
-    project.layout.buildDirectory.dir("generated/kotlin").get().asFile.apply {
-        mkdirs()
+    val version = project.property("pluginVersion").toString()
+    project.layout.projectDirectory.dir("src/main/kotlin/cn/rtast/kembeddable/resources/gradle").asFile.apply {
         File(this, "BuildConstants.kt").writeText(
             buildString {
-                appendLine("package cn.rtast.kembeddable.resources")
+                appendLine("package cn.rtast.kembeddable.resources.gradle")
                 appendLine("const val PLUGIN_VERSION=\"$version\"")
             }
         )
@@ -49,11 +48,5 @@ val generateVersions by tasks.registering {
 tasks.all {
     if (this.name != "generateVersions") {
         this.dependsOn(generateVersions)
-    }
-}
-
-sourceSets {
-    main {
-        kotlin.srcDir("build/generated/kotlin")
     }
 }

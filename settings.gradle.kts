@@ -1,4 +1,4 @@
-rootProject.name = "RKMbed"
+rootProject.name = "KEmbeddableResources"
 
 pluginManagement {
     repositories {

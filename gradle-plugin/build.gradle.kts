@@ -11,11 +11,11 @@ gradlePlugin {
     vcsUrl = "https://github.com/RTAkland/RKMbed"
     plugins {
         create("rkmbed") {
-            id = "cn.rtast.rkmbed"
+            id = "cn.rtast.kembeddable"
             displayName = "RKMBed"
             description = "Auto generate resources on kmp"
             tags = listOf("resources", "kmp", "auto-generated")
-            implementationClass = "cn.rtast.rkmbed.gradle.RKMbed"
+            implementationClass = "cn.rtast.kembeddable.resources.gradle.KEmbeddableResourcesPlugin"
         }
     }
 }

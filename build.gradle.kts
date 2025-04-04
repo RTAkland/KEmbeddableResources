@@ -7,7 +7,7 @@ plugins {
 val pluginVersion: String by extra
 
 allprojects {
-    group = "cn.rtast.rkmbed"
+    group = "cn.rtast.kembeddable"
     version = pluginVersion
 
     repositories {

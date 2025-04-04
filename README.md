@@ -5,7 +5,7 @@
 ```kotlin
 // build.gradle.kts
 plugins {
-    id("cn.rtast.rkmbed") version "<version>"
+    id("cn.rtast.kembeddable") version "<version>"
 }
 
 repositories {
@@ -77,15 +77,15 @@ fun main() {
 
 - 不支持使用zlib压缩资源
 
-> 最新版本可以在这里找到 https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
+> 最新版本可以在这里找到 https://repo.maven.rtast.cn/#/releases/cn/rtast/kembeddable/gradle-plugin
 
 # Usage
 
 > This plugin only usage for Kotlin Multiplatform(Native)
 
-Just add plugin, add repository, configure plugin, then enjoy it~
+Just apply the plugin, add the repository, configure the plugin, then enjoy it~
 
-> The latest version can be found at https://repo.maven.rtast.cn/#/releases/cn/rtast/rkmbed/gradle-plugin
+> The latest version can be found at https://repo.maven.rtast.cn/#/releases/cn/rtast/kembeddable/gradle-plugin
 
 # Generating the resources
 

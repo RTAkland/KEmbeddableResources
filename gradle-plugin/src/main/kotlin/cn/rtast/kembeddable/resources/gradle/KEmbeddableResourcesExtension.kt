@@ -18,12 +18,11 @@ abstract class KEmbeddableResourcesExtension {
     @get:Input
     abstract val resourcePath: ListProperty<String>
 
-    @Deprecated("暂时不可用")
     @get:Input
     abstract val compression: Property<Boolean>
 
     init {
         resourcePath.set(mutableListOf("commonMain/resources"))
-        compression.convention(true)
+        compression.convention(false)
     }
 }

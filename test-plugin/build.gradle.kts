@@ -1,5 +1,5 @@
 plugins {
-    id("cn.rtast.rkmbed") version "1.1.7"
+    id("cn.rtast.kembeddable") version "1.2.2"
     kotlin("multiplatform")
 }
 
@@ -34,7 +34,8 @@ kotlin {
     }
 }
 
-rkmbed {
+kembeddable {
     packageName = "cn.rtast.test.resources"
     resourcePath.add("nativeMain/resources")
+    compression = true
 }

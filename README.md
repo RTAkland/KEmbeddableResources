@@ -28,7 +28,7 @@ kotlin {
     }
 }
 
-rkmbed {
+kembeddable {
     // 指定生成的资源类的包名
     // Specify auto-generated resources source code package
     packageName = "cn.rtast.test.resources"

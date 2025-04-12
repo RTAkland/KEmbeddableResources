@@ -60,7 +60,7 @@ pluginManagement {
 ```
 
 > The runtime module support all of kotlin native target tier(expect android native, js & wasm, because the following
-> targets don't need to this plugin to embed the resources into binary)
+> targets don't need this plugin to embed the resources into binary)
 
 # Generating the resources
 

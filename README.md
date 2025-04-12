@@ -31,7 +31,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                // These two dependencies are only needed when you need to save the file to the file system
+                // These two dependencies are only needed when you need to save the file to the filesystem
                 implementation("org.jetbrains.kotlinx:kotlinx-io-core:0.7.0")
                 implementation("cn.rtast.kembeddable:runtime-filesystem:<version>")
             }
@@ -70,7 +70,7 @@ $ ./gradlew generateResources
 
 # FileSystem Module
 
-This module provided the API for save files into filesystem
+This module provided the API for saving files into filesystem
 
 ```kotlin
 fun main() {

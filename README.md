@@ -1,7 +1,7 @@
 # KEmbeddableResources
 
 > This plugin is used for Kotlin native app development(like ktor native server),
-> that can embedded the resources into executable binary file,
+> that can embed the resources into executable binary file,
 > and provide some simple & lightweight API to get the resources like this:
 
 ```kotlin
@@ -59,6 +59,9 @@ pluginManagement {
 }
 ```
 
+> The runtime module support all of kotlin native target tier(expect android native, js & wasm, because the following
+> targets don't need to this plugin to embed the resources into binary)
+
 # Generating the resources
 
 ```shell
@@ -75,4 +78,5 @@ fun main() {
     resource.saveTo(Path("kotlinx-io/xxx.txt"))  // Kotlinx-io Path
 }
 ```
+
 > The latest version can be found at https://repo.maven.rtast.cn/#/releases/cn/rtast/kembeddable/gradle-plugin

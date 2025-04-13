@@ -79,4 +79,4 @@ fun main() {
 }
 ```
 
-> The latest version can be found at [https://repo.maven.rtast.cn/#/releases/cn/rtast/kembeddable/gradle-plugin](https://repo.maven.rtast.cn/listing/releases/cn/rtast/kembeddable/gradle-plugin)
+> The latest version can be found at https://repo.maven.rtast.cn/listing/releases/cn/rtast/kembeddable/gradle-plugin

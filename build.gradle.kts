@@ -29,7 +29,8 @@ subprojects {
             publishing {
                 repositories {
 //                    mavenLocal()
-                    maven("https://maven.rtast.cn/releases/") {
+                    maven("http://192.168.10.222:9098/releases/") {
+                        isAllowInsecureProtocol = true
                         credentials {
                             username = "RTAkland"
                             password = System.getenv("PUBLISH_TOKEN")

@@ -26,7 +26,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation("cn.rtast.kzlib:kzlib:0.0.3")
+            implementation("cn.rtast.kzlib:kzlib:0.0.4")
         }
     }
 }

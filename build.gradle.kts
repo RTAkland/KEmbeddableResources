@@ -21,20 +21,12 @@ subprojects {
     apply(plugin = "maven-publish")
 
     afterEvaluate {
-        if (project.name == "test-plugin") {
-            tasks.matching { it.name == "publish" }.configureEach {
-                onlyIf { false }
-            }
-        } else {
-            publishing {
-                repositories {
-//                    mavenLocal()
-                    maven("http://192.168.10.222:9098/releases/") {
-                        isAllowInsecureProtocol = true
-                        credentials {
-                            username = "RTAkland"
-                            password = System.getenv("PUBLISH_TOKEN")
-                        }
+        publishing {
+            repositories {
+                maven("https://repo.maven.rtast.cn/releases/") {
+                    credentials {
+                        username = "RTAkland"
+                        password = System.getenv("PUBLISH_TOKEN")
                     }
                 }
             }

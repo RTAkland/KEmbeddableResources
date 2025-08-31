@@ -6,9 +6,9 @@
 
 package test
 
-import cn.rtast.test.resources.getResource
-
-
-fun main() {
-    println(getResource("a.text").asString())
-}
+//import cn.rtast.test.resources.getResource
+//
+//
+//fun main() {
+//    println(getResource("a.text").asString())
+//}

@@ -9,6 +9,6 @@ package test
 //import cn.rtast.test.resources.getResource
 //
 //
-//fun main() {
+fun main() {
 //    println(getResource("a.text").asString())
-//}
+}

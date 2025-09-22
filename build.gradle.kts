@@ -20,14 +20,14 @@ allprojects {
 subprojects {
     apply(plugin = "maven-publish")
 
-    afterEvaluate {
-        publishing {
-            repositories {
-                maven("https://repo.maven.rtast.cn/releases/") {
-                    credentials {
-                        username = "RTAkland"
-                        password = System.getenv("PUBLISH_TOKEN")
-                    }
+    publishing {
+        repositories {
+            mavenLocal()
+            maven("https://repo.maven.rtast.cn/releases/") {
+                name = "RTAST"
+                credentials {
+                    username = "RTAkland"
+                    password = System.getenv("PUBLISH_TOKEN")
                 }
             }
         }

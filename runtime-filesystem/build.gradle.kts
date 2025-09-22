@@ -25,6 +25,7 @@ kotlin {
     watchosArm64()
     watchosX64()
     watchosArm32()
+    js(IR) { browser() }
 
     sourceSets {
         commonMain.dependencies {

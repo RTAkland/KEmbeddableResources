@@ -40,10 +40,11 @@ kotlin {
 }
 
 kembeddable {
-    // Specify auto-generated resources source code package
-    packageName = "cn.rtast.test.resources"
     // Add others sourceSet's resources folder (This list only contains "commonMain/resources" by default)  
-    resourcePath.add("nativeMain/resources")
+    resourcePath.apply {
+        put("commonMain/resources", "com.example.common")
+        put("jsMain/resources", "com.example.js")
+    }
     // Enable zlib compression, by default it is `false`
     compression = true
 }

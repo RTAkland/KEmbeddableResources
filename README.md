@@ -44,8 +44,9 @@ kembeddable {
     resourcePath.apply {
         // key is resource path relative to src(current project/module)
         // value is generated package (Can be repeatable with other sourceSets)
-        put("commonMain/resources", "com.example.common")
-        put("jsMain/resources", "com.example.js")
+        put(File("./src/commonMain/resources"))
+        // or 
+        put(CommonMain)
     }
     // Enable zlib compression, by default it is `false`
     compression = true

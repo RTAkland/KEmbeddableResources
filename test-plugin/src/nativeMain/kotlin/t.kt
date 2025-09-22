@@ -1,3 +1,5 @@
+import common.getResource
+
 /*
  * Copyright © 2025 RTAkland
  * Author: RTAkland
@@ -6,4 +8,5 @@
 
 
 fun main() {
+    println(getResource("1.ipynb").asByteArray())
 }

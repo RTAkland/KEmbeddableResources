@@ -6,13 +6,15 @@
 
 package cn.rtast.kembeddable.resources.gradle
 
-import org.gradle.api.provider.MapProperty
+import cn.rtast.kembeddable.resources.gradle.util.CommonMain
+import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
+import java.io.File
 
 abstract class KEmbeddableResourcesExtension {
     @get:Input
-    abstract val resourcePath: MapProperty<String, String>
+    abstract val resourcePath: ListProperty<File>
 
     @get:Input
     abstract val compression: Property<Boolean>
@@ -20,9 +22,17 @@ abstract class KEmbeddableResourcesExtension {
     @get:Input
     abstract val publicGeneratedResourceVariable: Property<Boolean>
 
+    @get:Input
+    abstract val packageName: Property<String>
+
+    @get:Input
+    abstract val maxSingleFileSize: Property<Int>
+
     init {
-        resourcePath.convention(mapOf("commonMain/resources" to "example.common"))
+        resourcePath.convention(listOf(CommonMain))
         compression.convention(false)
         publicGeneratedResourceVariable.convention(false)
+        packageName.convention("common")
+        maxSingleFileSize.convention(32)
     }
 }

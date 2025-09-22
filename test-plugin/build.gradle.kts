@@ -1,5 +1,7 @@
+import cn.rtast.kembeddable.resources.gradle.util.LinuxMain
+
 plugins {
-    id("cn.rtast.kembeddable") version "1.3.1"
+    id("cn.rtast.kembeddable") version "1.3.3"
     kotlin("multiplatform")
 }
 
@@ -16,14 +18,20 @@ tasks.withType<AbstractPublishToMaven>().configureEach {
 kotlin {
     linuxArm64 {
         binaries.executable {
-            entryPoint = "test.main"
+            entryPoint = "main"
         }
     }
     mingwX64 {
         binaries.executable {
-            entryPoint = "test.main"
+            entryPoint = "main"
         }
     }
+    linuxX64 {
+        binaries.executable {
+            entryPoint = "main"
+        }
+    }
+    js(IR) { browser() }
 
     sourceSets {
         commonMain {
@@ -35,10 +43,10 @@ kotlin {
 }
 
 kembeddable {
-    compression = true
     resourcePath.apply {
-        put("commonMain/resources", "common")
-        put("nativeMain/resources", "native")
+        add(LinuxMain)
     }
     publicGeneratedResourceVariable = true
+    packageName = "common"
+    compression = false
 }

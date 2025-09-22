@@ -6,6 +6,7 @@
 
 package cn.rtast.kembeddable.resources.gradle
 
+import cn.rtast.kembeddable.resources.gradle.error.NonMultiplatformProjectException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
@@ -25,7 +26,12 @@ class KEmbeddableResourcesPlugin : Plugin<Project> {
                     api("cn.rtast.kembeddable:runtime:$PLUGIN_VERSION")
                 }
             }
-            kotlinExtension.sourceSets.findByName("commonMain")?.kotlin?.srcDir("build/generated/kotlin")
+            val settings = target.extensions.getByType(KEmbeddableResourcesExtension::class.java)
+            settings.resourcePath.get().forEach { trackedResource ->
+                val outputDir =
+                    target.layout.buildDirectory.dir("generated/kotlin/kembed").get().asFile
+                kotlinExtension.sourceSets.findByName("commonMain")?.kotlin?.srcDir(outputDir)
+            }
         }
     }
 }

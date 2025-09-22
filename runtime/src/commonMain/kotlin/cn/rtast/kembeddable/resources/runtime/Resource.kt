@@ -12,9 +12,7 @@ import cn.rtast.kzlib.zlibDecompress
 
 public class Resource(uSource: UByteArray, private val compressed: Boolean = false) {
     private val source = uSource.toByteArray()
-
     public fun asByteArray(): ByteArray = if (compressed) source.zlibDecompress() else source
-
     public fun asString(): String {
         return asByteArray().decodeToString()
     }

@@ -42,11 +42,16 @@ kotlin {
 kembeddable {
     // Add others sourceSet's resources folder (This list only contains "commonMain/resources" by default)  
     resourcePath.apply {
+        // key is resource path relative to src(current project/module)
+        // value is generated package (Can be repeatable with other sourceSets)
         put("commonMain/resources", "com.example.common")
         put("jsMain/resources", "com.example.js")
     }
     // Enable zlib compression, by default it is `false`
     compression = true
+
+    // is public visibility for generated variable map, by default it is false
+    publicGeneratedResourceVariable = false
 }
 
 // settings.gradle.kts
@@ -75,7 +80,9 @@ This module provided the API for saving files into filesystem
 
 ```kotlin
 fun main() {
-    val resource: Resource = getResource("xxx.txt")
+    // if set `commonMain/resources` as resource path,
+    // the generated function name is `getCommonMainResource`
+    val resource: Resource = get{sourceSet}Resource("xxx.txt")
     resource.saveTo(Path("kotlinx-io/xxx.txt"))  // Kotlinx-io Path
 }
 ```

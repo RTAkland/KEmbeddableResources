@@ -17,8 +17,12 @@ abstract class KEmbeddableResourcesExtension {
     @get:Input
     abstract val compression: Property<Boolean>
 
+    @get:Input
+    abstract val publicGeneratedResourceVariable: Property<Boolean>
+
     init {
         resourcePath.convention(mapOf("commonMain/resources" to "example.common"))
         compression.convention(false)
+        publicGeneratedResourceVariable.convention(false)
     }
 }

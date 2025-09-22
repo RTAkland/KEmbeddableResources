@@ -7,6 +7,9 @@
 package cn.rtast.kembeddable.resources.gradle
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.file.ConfigurableFileCollection
+import org.gradle.api.tasks.InputFiles
+import org.gradle.api.tasks.OutputFiles
 import org.gradle.api.tasks.TaskAction
 import java.io.File
 
@@ -19,8 +22,12 @@ abstract class GenerateResourcesTask : DefaultTask() {
         val settings = project.extensions.findByType(KEmbeddableResourcesExtension::class.java)!!
         val usingCompression = settings.compression.get()
         val outputDir = project.layout.buildDirectory.dir("generated/kotlin").get().asFile
+        val isGenerateResourceVariablePublic = settings.publicGeneratedResourceVariable.get()
+        val visibility = if (isGenerateResourceVariablePublic) "public" else "private"
         settings.resourcePath.get().forEach { (resourcePath, packageName) ->
             val outputFile = File(outputDir, "_kembed_generated_${resourcePath}.kt")
+            val sourceSetName = resourcePath.split(sep).first().replaceFirstChar { it.uppercaseChar() }
+            val generatedVarianceName = "kembed${sourceSetName}Resources"
             outputFile.parentFile.mkdirs()
             val generatedCode = buildString {
                 appendCode("// 此文件为自动生成, 请勿手动修改! | This file is auto-generated, please DO NOT edit it by hand!")
@@ -29,24 +36,22 @@ abstract class GenerateResourcesTask : DefaultTask() {
                 appendLine()
                 appendCode("""import cn.rtast.kembeddable.resources.runtime.Resource""")
                 appendLine()
-                appendCode("private val kembeddableGeneratedResource: Map<String, Resource> = mapOf<String, Resource>(")
+                appendCode("$visibility val ${generatedVarianceName}: Map<String, Resource> = mapOf<String, Resource>(")
                 val resourcesDir = project.layout.projectDirectory.dir("src/$resourcePath")
-                if (resourcesDir.asFile.exists()) {
-                    val files = resourcesDir.asFileTree.files
-                    files.forEach {
-                        appendCode(
-                            "\"${
-                                it.path.split("src${sep}$resourcePath").last().drop(1)
-                            }\" to Resource(${it.toUByteArrayOf(usingCompression)}, $usingCompression),"
-                        )
-                    }
+                val files = if (resourcesDir.asFile.exists()) resourcesDir.asFileTree.files else emptySet()
+                files.forEach {
+                    appendCode(
+                        "\"${
+                            it.path.split("src${sep}$resourcePath").last().drop(1)
+                        }\" to Resource(${it.toUByteArrayOf(usingCompression)}, $usingCompression),"
+                    )
                 }
                 appendCode(")")
                 appendLine()
                 appendCode(
                     """
-                public fun getResource(path: String): Resource {
-                    return requireNotNull(kembeddableGeneratedResource[path]) { "资源 ${'$'}path 不存在! | Resource ${'$'}path is not exists!" }
+                public fun get${sourceSetName}Resource(path: String): Resource {
+                    return requireNotNull($generatedVarianceName[path]) { "资源 ${'$'}path 不存在! | Resource ${'$'}path is not exists!" }
                 }""".trimIndent()
                 )
             }

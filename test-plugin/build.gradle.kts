@@ -1,5 +1,5 @@
 plugins {
-    id("cn.rtast.kembeddable") version "1.3.0"
+    id("cn.rtast.kembeddable") version "1.3.1"
     kotlin("multiplatform")
 }
 
@@ -40,4 +40,5 @@ kembeddable {
         put("commonMain/resources", "common")
         put("nativeMain/resources", "native")
     }
+    publicGeneratedResourceVariable = true
 }

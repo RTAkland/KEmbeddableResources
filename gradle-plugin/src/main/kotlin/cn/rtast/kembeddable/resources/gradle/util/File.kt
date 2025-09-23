@@ -7,10 +7,16 @@
 
 package cn.rtast.kembeddable.resources.gradle.util
 
-import org.gradle.api.Project
-import org.gradle.api.file.Directory
-import org.gradle.api.provider.Provider
+import java.io.File
 
-fun Project.buildDir(path: String): Provider<Directory?> = this.layout.buildDirectory.dir(path)
-
-fun Project.workDir(path: String): Directory = this.layout.projectDirectory.dir(path)
+fun clearDirectory(dir: File) {
+    if (!dir.exists() || !dir.isDirectory) return
+    dir.listFiles()?.forEach { file ->
+        if (file.isDirectory) {
+            clearDirectory(file)
+            file.delete()
+        } else {
+            file.delete()
+        }
+    }
+}

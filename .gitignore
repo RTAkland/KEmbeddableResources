@@ -6,3 +6,4 @@ gradle-plugin/src/main/kotlin/cn/rtast/kembeddable/resources/gradle/BuildConstan
 test-plugin/src/linuxMain/resources/krepo-backend.js
 test-plugin/src/linuxMain/resources/krepo-backend.js.map
 test-plugin/src/linuxMain/resources/1.ipynb
+/test-plugin/krepo-backend.js

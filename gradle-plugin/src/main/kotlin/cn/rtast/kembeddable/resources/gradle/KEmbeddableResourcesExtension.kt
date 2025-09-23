@@ -33,6 +33,6 @@ abstract class KEmbeddableResourcesExtension {
         compression.convention(false)
         publicGeneratedResourceVariable.convention(false)
         packageName.convention("common")
-        maxSingleFileSize.convention(32)
+        maxSingleFileSize.convention(64)
     }
 }

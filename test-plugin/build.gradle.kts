@@ -1,7 +1,7 @@
 import cn.rtast.kembeddable.resources.gradle.util.LinuxMain
 
 plugins {
-    id("cn.rtast.kembeddable") version "1.3.3"
+    id("cn.rtast.kembeddable") version "1.3.6"
     kotlin("multiplatform")
 }
 
@@ -16,6 +16,7 @@ tasks.withType<AbstractPublishToMaven>().configureEach {
 }
 
 kotlin {
+    jvm()
     linuxArm64 {
         binaries.executable {
             entryPoint = "main"
@@ -36,7 +37,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-io-core:0.7.0")
+                implementation(project(":runtime-filesystem"))
             }
         }
     }
@@ -48,5 +49,5 @@ kembeddable {
     }
     publicGeneratedResourceVariable = true
     packageName = "common"
-    compression = false
+    compression = true
 }

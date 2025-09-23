@@ -22,8 +22,8 @@ gradlePlugin {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.20")
-    implementation("cn.rtast.kzlib:kzlib:0.0.4")
     implementation(project(":runtime"))
+    implementation("com.squareup:kotlinpoet:2.2.0")
 }
 
 tasks.compileKotlin {

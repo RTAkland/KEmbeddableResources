@@ -4,6 +4,13 @@
 > that can embed the resources into executable binary file,
 > and provide some simple & lightweight API to get the resources like this:
 
+# IMPORTANT
+
+> Write generated files into disk is recommended, frequent use of API to access the generated 
+> resources will increase memory usage
+
+> If compression is on, the memory will be higher, it may affect performance
+
 ```kotlin
 fun main() {
     println(getResouerce("config.json").asString())
@@ -81,11 +88,9 @@ This module provided the API for saving files into filesystem
 
 ```kotlin
 fun main() {
-    // if set `commonMain/resources` as resource path,
-    // the generated function name is `getCommonMainResource`
-    val resource: Resource = get{sourceSet}Resource("xxx.txt")
+    val resource: Resource = getResource("xxx.txt")
     resource.saveTo(Path("kotlinx-io/xxx.txt"))  // Kotlinx-io Path
 }
 ```
 
-> The latest version can be found at https://repo.maven.rtast.cn/listing/releases/cn/rtast/kembeddable/gradle-plugin
+> The latest version can be found at https://repo.maven.rtast.cn/#/releases/cn/rtast/kembeddable/gradle-plugin

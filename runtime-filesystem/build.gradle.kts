@@ -11,9 +11,7 @@ kotlin {
     mingwX64()
     macosX64()
     macosArm64()
-    jvm {
-        compilerOptions.jvmTarget = JvmTarget.JVM_1_8
-    }
+    jvm { compilerOptions.jvmTarget = JvmTarget.JVM_1_8 }
     tvosSimulatorArm64()
     tvosX64()
     tvosX64()
@@ -30,7 +28,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api("org.jetbrains.kotlinx:kotlinx-io-core:0.7.0")
-            implementation(project(":runtime"))
+            api(project(":runtime"))
         }
     }
 }

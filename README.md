@@ -93,4 +93,4 @@ fun main() {
 }
 ```
 
-> The latest version can be found at https://repo.maven.rtast.cn/#/releases/cn/rtast/kembeddable/gradle-plugin
+> The latest version can be found at https://next.pkg.rtast.cn/#/releases/cn/rtast/kembeddable/runtime

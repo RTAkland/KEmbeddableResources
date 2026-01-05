@@ -4,13 +4,6 @@
 > that can embed the resources into executable binary file,
 > and provide some simple & lightweight API to get the resources like this:
 
-# IMPORTANT
-
-> Write generated files into disk is recommended, frequent use of API to access the generated 
-> resources will increase memory usage
-
-> If compression is on, the memory will be higher, it may affect performance
-
 ```kotlin
 fun main() {
     println(getResouerce("config.json").asString())
@@ -18,7 +11,15 @@ fun main() {
 }
 ```
 
-But this gradle plugin is only compat for KMP project
+kembeddable is only compat for KMP project
+
+
+# IMPORTANT
+
+> Write generated files into disk is recommended, frequent use of API to access the generated 
+> resources will increase memory usage
+
+> If compression is on, the memory will be higher, it may affect performance
 
 # Apply plugin
 

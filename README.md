@@ -35,18 +35,6 @@ repositories {
     maven("https://repo.maven.rtast.cn/releases")
 }
 
-kotlin {
-    sourceSets {
-        commonMain {
-            dependencies {
-                // These two dependencies are only needed when you need to save the file to the filesystem
-                implementation("org.jetbrains.kotlinx:kotlinx-io-core:0.7.0")
-                implementation("cn.rtast.kembeddable:runtime-filesystem:<version>")
-            }
-        }
-    }
-}
-
 kembeddable {
     // Add others sourceSet's resources folder (This list only contains "commonMain/resources" by default)  
     resourcePath.apply {
@@ -68,7 +56,7 @@ pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-        // Add the maven repository of RTAST
+        // Add the maven repository
         maven("https://repo.maven.rtast.cn/releases")
     }
 }

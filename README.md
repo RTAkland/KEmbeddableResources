@@ -83,15 +83,4 @@ pluginManagement {
 $ ./gradlew generateResources
 ```
 
-# FileSystem Module
-
-This module provided the API for saving files into filesystem
-
-```kotlin
-fun main() {
-    val resource: Resource = getResource("xxx.txt")
-    resource.saveTo(Path("kotlinx-io/xxx.txt"))  // Kotlinx-io Path
-}
-```
-
 > The latest version can be found at https://next.pkg.rtast.cn/#/releases/cn/rtast/kembeddable/runtime
